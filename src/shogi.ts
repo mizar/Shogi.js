@@ -216,7 +216,7 @@ export class Shogi {
     // colorが打てる動きを全て得る
     public getDropsBy(color: Color): IMove[] {
         const ret = [];
-        const places: Array<{ x: number, y: number }> = [];
+        const places: { x: number, y: number }[] = [];
         const fuExistsArray = [];
         for (let i = 1; i <= 9; i++) {
             let fuExists = false;
@@ -400,8 +400,8 @@ export interface ISettingType {
     preset: string;
     data?: {
         color: Color;
-        board: Array<Array<{ color?: Color; kind?: string; }>>;
-        hands: Array<{ [index: string]: number }>;
+        board: { color?: Color; kind?: string; }[][];
+        hands: { [index: string]: number }[];
     };
 }
 
